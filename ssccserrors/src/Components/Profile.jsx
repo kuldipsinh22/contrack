@@ -23,7 +23,7 @@ export default function Profile() {
   const getdata = async () => {
     if (role_id == 1) {
       try {
-        const res = await axios.get("/admin/" + id);
+        const res = await axios.get("http://localhost:1122/track/admin/" + id);
         console.log(res.data);
         setadmin_name(res.data.admin_name);
         setcontact(res.data.contact);
@@ -33,7 +33,9 @@ export default function Profile() {
       } catch (error) {}
     } else if (role_id == 2) {
       try {
-        const res = await axios.get("/sub_admin/" + id);
+        const res = await axios.get(
+          "http://localhost:1122/track/sub_admin/" + id
+        );
         console.log(res.data);
         setsub_admin_name(res.data.sub_admin_name);
         setsub_admin_email(res.data.sub_admin_email);
@@ -45,7 +47,9 @@ export default function Profile() {
       } catch (error) {}
     } else if (role_id == 3) {
       try {
-        const res = await axios.get("/contractor/" + id);
+        const res = await axios.get(
+          "http://localhost:1122/track/contractor/" + id
+        );
         console.log(res.data);
         setcontractor_name(res.data.contractor_name);
         setcontractor_email(res.data.contractor_email);
@@ -73,7 +77,10 @@ export default function Profile() {
         formData.append("img", "img");
         let res = "";
         if (id) {
-          res = await axios.put("/admin/" + id, formData);
+          res = await axios.put(
+            "http://localhost:1122/track/admin/" + id,
+            formData
+          );
         }
         alert(res.data);
         console.log(res.data);
@@ -92,7 +99,10 @@ export default function Profile() {
         formData.append("img", "img");
         let res = "";
         if (id) {
-          res = await axios.put("/sub_admin/" + id, formData);
+          res = await axios.put(
+            "http://localhost:1122/track/sub_admin/" + id,
+            formData
+          );
         }
         alert(res.data);
         console.log(res.data);
@@ -114,7 +124,10 @@ export default function Profile() {
         formData.append("img", "img");
         let res = "";
         if (id) {
-          res = await axios.put("/contractor/" + id, formData);
+          res = await axios.put(
+            "http://localhost:1122/track/contractor/" + id,
+            formData
+          );
         }
         alert(res.data);
         console.log(res.data);

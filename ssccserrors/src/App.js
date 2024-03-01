@@ -6,6 +6,7 @@ import Login from "./Components/Login";
 import Sidebar from "./Components/Sidebar";
 import Project from "./Components/Project";
 import Add_project from "./Components/Add_project";
+import Subadmin from "./Components/Subadmin";
 
 const Layout = () => {
   return (
@@ -30,6 +31,7 @@ function App() {
               <Route path="/Project" element={<Project />} />
               <Route path="/Add_project" element={<Add_project />} />
               <Route path="/Add_project/:id" element={<Add_project />} />
+              <Route path="/Subadmin" element={<Subadmin />} />
             </Routes>
           </>
         ) : auth && role_id == 2 ? (

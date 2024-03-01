@@ -3,67 +3,66 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-export default function Project() {
-  const [project, setProject] = useState([]);
+export default function Subadmin() {
+  const [subadmin, setSubadmins] = useState([]);
   let i = 1;
   useEffect(() => {
-    getProjects();
+    getSubadmins();
   }, []);
-  const getProjects = async () => {
-    const res = await axios.get("http://localhost:1122/track/projects");
-    setProject(res.data);
+  const getSubadmins = async () => {
+    const res = await axios.get("http://localhost:1122/track/subadmin");
+    setSubadmins(res.data);
     console.log(res.data);
   };
-  const deleteProject = async (project_id) => {
+  const deleteSubadmins = async (id) => {
     let ans = window.confirm("are you sure?");
     if (ans) {
       const res = await axios.delete(
-        "http://localhost:1122/track/projects/" + project_id
+        "http://localhost:1122/track/subadmin/" + id
       );
       console.log(res.data);
       alert(res.data);
-      getProjects();
+      getSubadmins();
     }
   };
-
   return (
     <div>
       <main id="main" class="main">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">project</h5>
+            <h5 class="card-title">subadmin</h5>
 
             <button class="button-39" role="button">
-              <Link to={`/Add_project/`}>Add project</Link>
+              <Link to={`/Add_subadmin/`}>Add subadmin</Link>
             </button>
 
             <table class="table table-borderless">
               <thead>
                 <tr>
                   <th scope="col">#</th>
-                  <th scope="col">Project name</th>
-                  <th scope="col">Publish Date</th>
+                  <th scope="col">Sub-Admin name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Contact</th>
                   <th scope="col">City</th>
-                  <th scope="col">Duration</th>
                 </tr>
               </thead>
               <tbody>
-                {project.map((project) => (
+                {subadmin.map((subadmin) => (
                   <tr>
                     <th scope="row">{i++}</th>
-                    <td>{project.project_name}</td>
-                    <td>{project.entry_date}</td>
-                    <td>{project.city}</td>
-                    <td>{project.project_time}</td>
+                    <td>{subadmin.sub_admin_name}</td>
+                    <td>{subadmin.sub_admin_email}</td>
+                    <td>{subadmin.contact}</td>
+                    <td>{subadmin.city}</td>
                     <td>
                       <button class="button-39" role="button">
-                        <Link to={`/Add_project/` + project.project_id}>
+                        <Link to={`/Add_subadmin/` + subadmin.sub_admin_id}>
                           Edit
                         </Link>
                       </button>
                       &nbsp; &nbsp; &nbsp;
                       <button
-                        onClick={() => deleteProject(project.project_id)}
+                        onClick={() => deleteSubadmins(subadmin.sub_admin_id)}
                         class="button-40"
                         role="button"
                       >

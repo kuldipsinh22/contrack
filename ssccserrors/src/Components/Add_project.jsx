@@ -72,9 +72,12 @@ export default function Add_project() {
       };
       let res = "";
       if (project_id) {
-        res = await axios.put("/projects/" + project_id, data);
+        res = await axios.put(
+          "http://localhost:1122/track/projects/" + project_id,
+          data
+        );
       } else {
-        res = await axios.post("/projects", data);
+        res = await axios.post("http://localhost:1122/track/projects", data);
       }
 
       alert(res.data);

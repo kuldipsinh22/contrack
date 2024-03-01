@@ -12,7 +12,7 @@ export default function Login() {
     e.preventDefault();
     //alert(role_id);
     try {
-      const res = await axios.get("/login", {
+      const res = await axios.get("http://localhost:1122/track/login", {
         params: {
           role_id: role_id,
           contact: contact,
