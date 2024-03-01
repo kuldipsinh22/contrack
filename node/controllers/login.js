@@ -50,8 +50,8 @@ export const getAdmin = (req, res) => {
         else {
           if (data.length == 0) return res.json(0);
           else {
-            console.log(data[0].sub_admin_id);
-            return res.json(data[0].sub_admin_id);
+            console.log(data[0].sub_admin_id  );
+            return res.json(data[0].sub_admin_id  );
           }
         }
       });

@@ -24,24 +24,40 @@ const Layout = () => {
 };
 
 function App() {
-  // const [auth, setAuth] = useState(sessionStorage.getItem("user"));
+  const [auth, setAuth] = useState(sessionStorage.getItem("user"));
+  const [role_id, setRole] = useState(sessionStorage.getItem("role"));
   return (
     <>
       <BrowserRouter>
-        <>
-          <Layout />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Profile" element={<Profile />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/Services" element={<Services />} />
-            <Route path="/Blog" element={<Blog />} />
-            <Route path="/Projects" element={<Projects />} />
-            <Route path="/Edit_profile" element={<Edit_profile />} />
-            <Route path="/Post" element={<Post />} />
-          </Routes>
-          <Footer />
-        </>
+        {auth && role_id == 1 ? (
+          <>
+            <Layout />
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </>
+        ) : auth && role_id == 2 ? (
+          <>
+            <Layout />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Home" element={<Home />} />
+            </Routes>
+          </>
+        ) : auth && role_id == 3 ? (
+          <>
+            <Layout />
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </>
+        ) : (
+          <>
+            <Routes>
+              <Route path="/" element={<Login />} />
+            </Routes>
+          </>
+        )}
       </BrowserRouter>
     </>
   );
