@@ -7,6 +7,7 @@ import router4 from "./models/r_task.js";
 import router5 from "./models/r_contractor.js";
 import router6 from "./models/r_progtress.js";
 import router7 from "./models/r_taskdone.js";
+import router8 from "./models/r_delay.js";
 
 const app = express();
 

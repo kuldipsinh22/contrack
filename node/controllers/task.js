@@ -49,7 +49,7 @@ export const insertTask = (req, res) => {
 
 export const updateTask = (req, res) => {
   const query =
-    "UPDATE `task` SET `sub_admin_id`=?, `contractor_id`=?, `task`=?, `duration`=?Task task_id=?";
+    "UPDATE `task` SET `sub_admin_id`=?, `contractor_id`=?, `task`=?, `duration`=? where task_id=?";
   const values = [
     req.body.sub_admin_id,
     req.body.contractor_id,
@@ -62,4 +62,3 @@ export const updateTask = (req, res) => {
     return res.json("Task data has been updated");
   });
 };
-s;
