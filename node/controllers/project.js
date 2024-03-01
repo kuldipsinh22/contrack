@@ -25,47 +25,47 @@ export const deleteProject = (req, res) => {
   const query = "DELETE FROM project where project_id=?";
   db.query(query, [req.params.id], (err, data) => {
     if (err) return res.json(err);
-    return res.json("admin has been deleted");
+    return res.json("project has been deleted");
   });
 };
 
 export const insertProject = (req, res) => {
   const query =
-    "INSERT INTO project( `sub_admin_name`, `sub_admin_email`, `contact`, `password`, `city`, `state`, `img`, `enrty_date`) values(?)";
+    "INSERT INTO project( `project_name`, `project_time`, `sub_admin_id`, `location`, `city`, `state`, `status`, `enrty_date`) values(?)";
   const date = new Date();
   const values = [
-    req.body.sub_admin_name,
-    req.body.sub_admin_email,
-    req.body.contact,
-    req.body.password,
+    req.body.project_name,
+    req.body.project_time,
+    req.body.sub_admin_id,
+    req.body.location,
     req.body.city,
     req.body.state,
-    req.file?.filename,
+    req.body.status || 1,
     date,
   ];
   console.log(query);
   console.log(values);
   db.query(query, [values], (err, data) => {
     if (err) return res.json(err);
-    return res.json("New admin has been added");
+    return res.json("New project has been added");
   });
 };
 
 export const updateProject = (req, res) => {
   const query =
-    "UPDATE `project` SET `sub_admin_name`=?, `sub_admin_email`=?, `contact`=?, `password`=?, `city`=?, `state`=?, `img`=? where project_id=?";
+    "UPDATE `project` SET `project_name`=?, `project_time`=?, `sub_admin_id`=?, `location`=?, `city`=?, `state`=?, `status`=? where project_id=?";
   const values = [
-    req.body.sub_admin_name,
-    req.body.sub_admin_email,
-    req.body.contact,
-    req.body.password,
+    req.body.project_name,
+    req.body.project_time,
+    req.body.sub_admin_id,
+    req.body.location,
     req.body.city,
     req.body.state,
-    req.file?.filename || req.body.img,
+    req.body.status || 1,
   ];
   console.log(query);
   db.query(query, [...values, req.params.id], (err, data) => {
     if (err) return res.json(err);
-    return res.json("admin data has been updated");
+    return res.json("project data has been updated");
   });
 };

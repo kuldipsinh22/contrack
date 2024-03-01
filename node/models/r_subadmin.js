@@ -19,11 +19,11 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-const router = express.Router();
+const router2 = express.Router();
 
-router.get("/", getSub_admins);
-router.get("/:id", getSub_admin);
-router.put("/:id", upload.single("img"), updateSub_admin);
-router.post("/", upload.single("img"), insertSub_admin);
-router.delete("/:id", deleteSub_admin);
-export default router;
+router2.get("/", getSub_admins);
+router2.get("/:id", getSub_admin);
+router2.put("/:id", upload.single("img"), updateSub_admin);
+router2.post("/", upload.single("img"), insertSub_admin);
+router2.delete("/:id", deleteSub_admin);
+export default router2;
