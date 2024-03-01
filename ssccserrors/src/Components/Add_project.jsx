@@ -25,7 +25,9 @@ export default function Add_project() {
   }, []);
 
   const getprojects = async () => {
-    const res = await axios.get("/project/" + project_id);
+    const res = await axios.get(
+      "http://localhost:1122/track/projects/" + project_id
+    );
     setproject_name(res.data.project_name);
     setproject_time(res.data.project_time);
     setsub_admin_id(res.data.sub_admin_id);
@@ -79,7 +81,7 @@ export default function Add_project() {
       } else {
         res = await axios.post("http://localhost:1122/track/projects", data);
       }
-
+      navigate("/Project");
       alert(res.data);
     }
   };
@@ -170,7 +172,7 @@ export default function Add_project() {
                     defaultValue={state}
                     onChange={(e) => setstate(e.target.value)}
                   />{" "}
-                  <p style={{ color: "red" }}>{formErrors.city}</p>
+                  <p style={{ color: "red" }}>{formErrors.state}</p>
                   <label for="floatingcity">State</label>
                 </div>
               </div>

@@ -31,7 +31,7 @@ export const deleteProject = (req, res) => {
 
 export const insertProject = (req, res) => {
   const query =
-    "INSERT INTO project( `project_name`, `project_time`, `sub_admin_id`, `location`, `city`, `state`, `enrty_date`,`status`) values(?)";
+    "INSERT INTO project( `project_name`, `project_time`, `sub_admin_id`, `location`, `city`, `state`, `entry_date`,`status`) values(?)";
   const date = new Date();
   const values = [
     req.body.project_name,
