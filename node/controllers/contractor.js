@@ -1,7 +1,7 @@
 import { db } from "../db.js";
 
-export const getadmins = (req, res) => {
-  const query1 = "SELECT * FROM Contractor";
+export const getContractors = (req, res) => {
+  const query1 = "SELECT * FROM contractor";
   db.query(query1, (err, data) => {
     if (err) {
       return res.json(err);
@@ -11,8 +11,8 @@ export const getadmins = (req, res) => {
   });
 };
 
-export const getadmin = (req, res) => {
-  const query = "select * from Contractor where contractor_id=?";
+export const getContractor = (req, res) => {
+  const query = "select * from contractor where contractor_id=?";
 
   db.query(query, [req.params.id], (err, data) => {
     if (err) return res.json(err);
@@ -20,17 +20,17 @@ export const getadmin = (req, res) => {
   });
 };
 
-export const deleteadmin = (req, res) => {
-  const query = "DELETE FROM Contractor where contractor_id=?";
+export const deleteContractor = (req, res) => {
+  const query = "DELETE FROM contractor where contractor_id=?";
   db.query(query, [req.params.id], (err, data) => {
     if (err) return res.json(err);
     return res.json("admin has been deleted");
   });
 };
 
-export const insertadmin = (req, res) => {
+export const insertContractor = (req, res) => {
   const query =
-    "INSERT INTO Contractor( `contractor_name`, `contractor_email`, `contact`, `password`, `project_id`, `work`, `duration`, `city`, `state`, `status`, `password`, `img`) values(?)";
+    "INSERT INTO contractor( `contractor_name`, `contractor_email`, `contact`, `password`, `project_id`, `work`, `duration`, `city`, `state`, `status`, `img`) values(?)";
   const date = new Date();
   const values = [
     req.body.contractor_name,
@@ -43,7 +43,6 @@ export const insertadmin = (req, res) => {
     req.body.city,
     req.body.state,
     req.body.status || 1,
-    req.body.password,
     req.file?.filename,
     date,
   ];
@@ -51,24 +50,29 @@ export const insertadmin = (req, res) => {
   console.log(values);
   db.query(query, [values], (err, data) => {
     if (err) return res.json(err);
-    return res.json("New admin has been added");
+    return res.json("New contractor has been added");
   });
 };
 
 export const updateContractor = (req, res) => {
   const query =
-    "UPDATE `admin` SET `contractor_name`=?, `contact`=?, `admin_email`=?, `password`=?, `img`=? where contractor_id=?";
+    "UPDATE `contractor` SET `contractor_name`=?, `contractor_email`=?, `contact`=?, `password`=?, `project_id`=?, `work`=?, `duration`=?, `city`=?, `state`=?, `status`=?, `img`=? where contractor_id=?";
   const values = [
     req.body.contractor_name,
+    req.body.contractor_email,
     req.body.contact,
-    req.body.admin_email,
     req.body.password,
+    req.body.project_id,
+    req.body.work,
+    req.body.duration,
+    req.body.city,
+    req.body.state,
+    req.body.status || 1,
     req.file?.filename || req.body.img,
   ];
   console.log(query);
   db.query(query, [...values, req.params.id], (err, data) => {
     if (err) return res.json(err);
-    return res.json("admin data has been updated");
+    return res.json("contractor data has been updated");
   });
 };
-Contractor;
