@@ -7,12 +7,12 @@ import {
   updateTask,
 } from "../controllers/task.js";
 
-const router3 = express.Router();
+const router4 = express.Router();
 
-router3.get("/", getTasks);
-router3.get("/:id", getTask);
-router3.post("/", insertTask);
-router3.put("/:id", updateTask);
-router3.delete("/:id", deleteTask);
+router4.get("/", getTasks);
+router4.get("/:id", getTask);
+router4.post("/", insertTask);
+router4.put("/:id", updateTask);
+router4.delete("/:id", deleteTask);
 
-export default router3;
+export default router4;
