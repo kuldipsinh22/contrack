@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
   return (
@@ -29,10 +30,10 @@ export default function Sidebar() {
               data-bs-parent="#sidebar-nav"
             >
               <li>
-                <a href="components-alerts.html">
+                <Link to="/Projects">
                   <i class="bi bi-circle"></i>
                   <span>Alerts</span>
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="components-accordion.html">

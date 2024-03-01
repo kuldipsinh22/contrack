@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
-  const [phone1, setphone] = useState("");
+  const [contact, setphone] = useState("");
   const [password, setpassword] = useState("");
   const [error, setError] = useState("");
   const [role_id, setRole] = useState(0);
@@ -15,7 +15,7 @@ export default function Login() {
       const res = await axios.get("/login", {
         params: {
           role_id: role_id,
-          phone1: phone1,
+          contact: contact,
           password: password,
         },
       });

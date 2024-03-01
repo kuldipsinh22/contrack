@@ -2,16 +2,9 @@ import { Route, BrowserRouter, Routes, Outlet } from "react-router-dom";
 import React, { useState } from "react";
 import Header from "./Components/Header";
 import Home from "./Components/Home";
-import Footer from "./Components/Footer";
-import About from "./Components/About";
-import Services from "./Components/Services";
-import Blog from "./Components/Blog";
-import Projects from "./Components/Projects";
 import Login from "./Components/Login";
-import Profile from "./Components/Profile";
-import Edit_profile from "./Components/Edit_profile";
-import Post from "./Components/Post";
 import Sidebar from "./Components/Sidebar";
+import Project from "./Components/Project";
 
 const Layout = () => {
   return (
@@ -33,7 +26,7 @@ function App() {
           <>
             <Layout />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/Project" element={<Project />} />
             </Routes>
           </>
         ) : auth && role_id == 2 ? (

@@ -17,7 +17,7 @@ app.use(cors());
 app.use("/uploads", express.static("uploads"));
 app.use("/track/admin", router);
 app.use("/track/subadmin", router2);
-app.use("/track/project", router3);
+app.use("/track/projects", router3);
 app.use("/track/task", router4);
 app.use("/track/contractor/", router5);
 app.use("/track/progress/", router6);
