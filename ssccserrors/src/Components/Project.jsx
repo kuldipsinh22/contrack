@@ -49,7 +49,7 @@ export default function Project() {
                 {project.map((project) => (
                   <tr>
                     <th scope="row">{i++}</th>
-                    <td>{project.title}</td>
+                    <td>{project.project_name}</td>
                     <td>{project.entry_date}</td>
                     <td>{project.city}</td>
                     <td>{project.project_time}</td>
