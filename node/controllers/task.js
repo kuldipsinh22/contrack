@@ -30,7 +30,7 @@ export const deleteTask = (req, res) => {
 
 export const insertTask = (req, res) => {
   const query =
-    "INSERT INTO task( `sub_admin_id`, `contractor_id`, `task`, `duration`, `enrty_date`) values(?)";
+    "INSERT INTO task( `sub_admin_id`, `contractor_id`, `task`, `duration`, `entry_date`) values(?)";
   const date = new Date();
   const values = [
     req.body.sub_admin_id,

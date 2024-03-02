@@ -57,7 +57,7 @@ export default function Add_task() {
     // setFormErrors(validate());
     // if (project_name && project_time && location && city && state) {
     const data = {
-      sub_admin_id: id,
+      sub_admin_id: sub_admin_id,
       contractor_id,
       task,
       duration,
