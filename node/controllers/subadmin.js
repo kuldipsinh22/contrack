@@ -30,7 +30,7 @@ export const deleteSub_admin = (req, res) => {
 
 export const insertSub_admin = (req, res) => {
   const query =
-    "INSERT INTO sub_admin( `sub_admin_name`, `sub_admin_email`, `contact`, `password`, `city`, `state`, `img`, `enrty_date`) values(?)";
+    "INSERT INTO sub_admin( `sub_admin_name`, `sub_admin_email`, `contact`, `password`, `city`, `state`, `enrty_date`) values(?)";
   const date = new Date();
   const values = [
     req.body.sub_admin_name,
@@ -39,7 +39,6 @@ export const insertSub_admin = (req, res) => {
     req.body.password,
     req.body.city,
     req.body.state,
-    req.file?.filename,
     date,
   ];
   console.log(query);
@@ -52,7 +51,7 @@ export const insertSub_admin = (req, res) => {
 
 export const updateSub_admin = (req, res) => {
   const query =
-    "UPDATE `sub_admin` SET `sub_admin_name`=?, `sub_admin_email`=?, `contact`=?, `password`=?, `city`=?, `state`=?, `img`=? where sub_admin_id=?";
+    "UPDATE `sub_admin` SET `sub_admin_name`=?, `sub_admin_email`=?, `contact`=?, `password`=?, `city`=?, `state`=? where sub_admin_id=?";
   const values = [
     req.body.sub_admin_name,
     req.body.sub_admin_email,
@@ -60,7 +59,6 @@ export const updateSub_admin = (req, res) => {
     req.body.password,
     req.body.city,
     req.body.state,
-    req.file?.filename || req.body.img,
   ];
   console.log(query);
   db.query(query, [...values, req.params.id], (err, data) => {

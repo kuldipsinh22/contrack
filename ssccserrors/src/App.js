@@ -74,7 +74,7 @@ function App() {
           <>
             <Layout />
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Task />} />
               <Route path="/Task" element={<Task />} />
             </Routes>
           </>

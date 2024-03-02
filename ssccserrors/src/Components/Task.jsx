@@ -30,7 +30,7 @@ export default function Task() {
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">task</h5>
-            {role_id == 1 && 2 ? (
+            {role_id == 1 || role_id == 2 ? (
               <button class="button-39" role="button">
                 <Link to={`/Add_task/`}>Create Task</Link>
               </button>
@@ -57,17 +57,23 @@ export default function Task() {
                     <td>{task.task}</td>
                     <td>{task.duration}</td>
                     <td>
-                      <button class="button-39" role="button">
-                        <Link to={`/Add_task/` + task.task_id}>Edit</Link>
-                      </button>
-                      &nbsp; &nbsp; &nbsp;
-                      <button
-                        onClick={() => deletetasks(task.task_id)}
-                        class="button-40"
-                        role="button"
-                      >
-                        DELETE
-                      </button>
+                      {role_id == 1 || role_id == 2 ? (
+                        <>
+                          <button class="button-39" role="button">
+                            <Link to={`/Add_task/` + task.task_id}>Edit</Link>
+                          </button>
+                          &nbsp; &nbsp; &nbsp;
+                          <button
+                            onClick={() => deletetasks(task.task_id)}
+                            class="button-40"
+                            role="button"
+                          >
+                            DELETE
+                          </button>
+                        </>
+                      ) : (
+                        <></>
+                      )}
                     </td>
                   </tr>
                 ))}

@@ -30,7 +30,7 @@ export const deleteContractor = (req, res) => {
 
 export const insertContractor = (req, res) => {
   const query =
-    "INSERT INTO contractor( `contractor_name`, `contractor_email`, `contact`, `password`, `project_id`, `work`, `duration`, `city`, `state`, `status`, `img`) values(?)";
+    "INSERT INTO contractor( `contractor_name`, `contractor_email`, `contact`, `password`, `project_id`, `work`, `duration`, `city`, `state`, `status`) values(?)";
   const date = new Date();
   const values = [
     req.body.contractor_name,
@@ -43,7 +43,7 @@ export const insertContractor = (req, res) => {
     req.body.city,
     req.body.state,
     req.body.status || 1,
-    req.file?.filename,
+
     date,
   ];
   console.log(query);
@@ -56,7 +56,7 @@ export const insertContractor = (req, res) => {
 
 export const updateContractor = (req, res) => {
   const query =
-    "UPDATE `contractor` SET `contractor_name`=?, `contractor_email`=?, `contact`=?, `password`=?, `project_id`=?, `work`=?, `duration`=?, `city`=?, `state`=?, `status`=?, `img`=? where contractor_id=?";
+    "UPDATE `contractor` SET `contractor_name`=?, `contractor_email`=?, `contact`=?, `password`=?, `project_id`=?, `work`=?, `duration`=?, `city`=?, `state`=?, `status`=? where contractor_id=?";
   const values = [
     req.body.contractor_name,
     req.body.contractor_email,
@@ -68,7 +68,6 @@ export const updateContractor = (req, res) => {
     req.body.city,
     req.body.state,
     req.body.status || 1,
-    req.file?.filename || req.body.img,
   ];
   console.log(query);
   db.query(query, [...values, req.params.id], (err, data) => {
