@@ -13,6 +13,7 @@ import Add_subadmin from "./Components/Add_subadmin";
 import Add_contractor from "./Components/Add_contractor";
 import Task from "./Components/Task";
 import CompletedTask from "./Components/CompletedTask";
+import Add_taskdone from "./Components/Add_taskdone";
 
 const Layout = () => {
   return (
@@ -46,7 +47,8 @@ function App() {
               <Route path="/Task" element={<Task />} />
               <Route path="/Add_task" element={<Add_task />} />
               <Route path="/CompletedTask" element={<CompletedTask />} />
-              <Route path="/CompletedTask/:id" element={<CompletedTask />} />
+              <Route path="/Add_taskdone" element={<Add_taskdone />} />
+              <Route path="/Add_taskdone/:id" element={<Add_taskdone />} />
               <Route path="/Add_task/:id" element={<Add_task />} />
             </Routes>
           </>

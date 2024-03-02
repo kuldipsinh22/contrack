@@ -31,7 +31,7 @@ export default function CompletedTask() {
             <h5 class="card-title">task</h5>
 
             <button class="button-39" role="button">
-              <Link to={`/Add_task/`}>Create Task</Link>
+              <Link to={`/Add_taskdone/`}>Create Task</Link>
             </button>
 
             <table class="table table-borderless">

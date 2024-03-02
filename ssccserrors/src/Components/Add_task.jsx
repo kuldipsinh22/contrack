@@ -31,27 +31,6 @@ export default function Add_task() {
     setduration(res.data.duration);
   };
 
-  //   const validate = () => {
-  //     const error = {};
-
-  //     if (!project_name) {
-  //       error.project_name = "Please Enter Project project_name";
-  //     }
-  //     if (!project_time) {
-  //       error.project_time = "Please Select project_time ";
-  //     }
-  //     if (!location) {
-  //       error.location = "Please Write location";
-  //     }
-  //     if (!city) {
-  //       error.city = "Please write City";
-  //     }
-  //     if (!state) {
-  //       error.city = "Please write State";
-  //     }
-  //     return error;
-  //   };
-
   const btnSubmit = async (e) => {
     e.preventDefault();
     // setFormErrors(validate());
