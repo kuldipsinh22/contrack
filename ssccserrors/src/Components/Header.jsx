@@ -1,14 +1,58 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
+import { useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function Header() {
+  const [admin_name, setadmin_name] = useState("");
+  const [sub_admin_name, setsubadmin_name] = useState("");
+  const [contractor_name, setcontractor_name] = useState("");
+  const [id, setId] = useState(sessionStorage.getItem("user"));
+  const [role_id, setRole_Id] = useState(sessionStorage.getItem("role"));
+  useEffect(() => {
+    fatchUserName();
+    if (!id) {
+      Navigate("/");
+      window.location.reload();
+    }
+  }, [id]);
+
+  const fatchUserName = async () => {
+    if (role_id == 1) {
+      try {
+        const res = await axios.get("http://localhost:1122/track/admin/" + id);
+        console.log(res.data.admin_name);
+        setadmin_name(res.data.admin_name);
+      } catch (error) {}
+    } else if (role_id == 2) {
+      try {
+        const res = await axios.get(
+          "http://localhost:1122/track/subadmin/" + id
+        );
+        console.log(res.data);
+        setsubadmin_name(res.data.setsubadmin_name);
+      } catch (error) {}
+    } else {
+      try {
+        const res = await axios.get(
+          "http://localhost:1122/track/contractor/" + id
+        );
+        console.log(res.data);
+        setcontractor_name(res.data.contractor_name);
+      } catch (error) {}
+    }
+  };
+  const btnSignOut = () => {
+    sessionStorage.clear();
+    setId("");
+  };
   return (
     <header id="header" class="header fixed-top d-flex align-items-center">
       <div class="d-flex align-items-center justify-content-between">
         <a href="index.html" class="logo d-flex align-items-center">
           <img src="assets/img/logo.png" alt="" />
-          <span class="d-none d-lg-block">NiceAdmin</span>
+          <span class="d-none d-lg-block">CONTRACK</span>
         </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
       </div>
 
       <div class="search-bar">
@@ -16,17 +60,7 @@ export default function Header() {
           class="search-form d-flex align-items-center"
           method="POST"
           action="#"
-        >
-          <input
-            type="text"
-            name="query"
-            placeholder="Search"
-            title="Enter search keyword"
-          />
-          <button type="submit" title="Search">
-            <i class="bi bi-search"></i>
-          </button>
-        </form>
+        ></form>
       </div>
 
       <nav class="header-nav ms-auto">
@@ -38,11 +72,6 @@ export default function Header() {
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-              <i class="bi bi-bell"></i>
-              <span class="badge bg-primary badge-number">4</span>
-            </a>
-
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow notifications">
               <li class="dropdown-header">
                 You have 4 new notifications
@@ -114,11 +143,6 @@ export default function Header() {
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
-              <i class="bi bi-chat-left-text"></i>
-              <span class="badge bg-success badge-number">3</span>
-            </a>
-
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow messages">
               <li class="dropdown-header">
                 You have 3 new messages
@@ -213,13 +237,27 @@ export default function Header() {
                 class="rounded-circle"
               />
               <span class="d-none d-md-block dropdown-toggle ps-2">
-                K. Anderson
+                {role_id == "1" ? (
+                  <span>{admin_name}</span>
+                ) : role_id == "2" ? (
+                  <span>{sub_admin_name}</span>
+                ) : (
+                  <span>{contractor_name}</span>
+                )}
               </span>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
-                <h6>Kevin Anderson</h6>
+                <h6>
+                  {role_id == "1" ? (
+                    <span>{admin_name}</span>
+                  ) : role_id == "2" ? (
+                    <span>{sub_admin_name}</span>
+                  ) : (
+                    <span>{contractor_name}</span>
+                  )}
+                </h6>
                 <span>Web Designer</span>
               </li>
               <li>
@@ -265,8 +303,8 @@ export default function Header() {
                 <hr class="dropdown-divider" />
               </li>
 
-              <li>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+              <li onClick={btnSignOut}>
+                <a class="dropdown-item d-flex align-items-center" href="">
                   <i class="bi bi-box-arrow-right"></i>
                   <span>Sign Out</span>
                 </a>

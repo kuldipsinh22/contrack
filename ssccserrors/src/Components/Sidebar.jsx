@@ -42,6 +42,12 @@ export default function Sidebar() {
               <span>Task</span>
             </Link>
           </li>
+          <li class="nav-item">
+            <Link class="nav-link collapsed" to="/CompletedTask">
+              <i class="bi bi-person"></i>
+              <span>CompletedTask</span>
+            </Link>
+          </li>
         </ul>
       </aside>
     </div>

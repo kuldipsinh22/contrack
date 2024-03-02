@@ -81,7 +81,7 @@ export default function Add_project() {
       } else {
         res = await axios.post("http://localhost:1122/track/projects", data);
       }
-
+      navigate("/Project");
       alert(res.data);
     }
   };
