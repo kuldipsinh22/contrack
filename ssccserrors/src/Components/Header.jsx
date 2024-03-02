@@ -231,11 +231,6 @@ export default function Header() {
               href="#"
               data-bs-toggle="dropdown"
             >
-              <img
-                src="assets/img/profile-img.jpg"
-                alt="Profile"
-                class="rounded-circle"
-              />
               <span class="d-none d-md-block dropdown-toggle ps-2">
                 {role_id == "1" ? (
                   <span>{admin_name}</span>
@@ -258,46 +253,15 @@ export default function Header() {
                     <span>{contractor_name}</span>
                   )}
                 </h6>
-                <span>Web Designer</span>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li>
-                <a
-                  class="dropdown-item d-flex align-items-center"
-                  href="users-profile.html"
-                >
-                  <i class="bi bi-person"></i>
-                  <span>My Profile</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li>
-                <a
-                  class="dropdown-item d-flex align-items-center"
-                  href="users-profile.html"
-                >
-                  <i class="bi bi-gear"></i>
-                  <span>Account Settings</span>
-                </a>
-              </li>
-              <li>
-                <hr class="dropdown-divider" />
-              </li>
-
-              <li>
-                <a
-                  class="dropdown-item d-flex align-items-center"
-                  href="pages-faq.html"
-                >
-                  <i class="bi bi-question-circle"></i>
-                  <span>Need Help?</span>
-                </a>
+                <span>
+                  {role_id == "1" ? (
+                    <span>Main Governer Admin</span>
+                  ) : role_id == "2" ? (
+                    <span>Sub admin under Governer's Admin</span>
+                  ) : (
+                    <span>Contractor under Sub admin</span>
+                  )}
+                </span>
               </li>
               <li>
                 <hr class="dropdown-divider" />

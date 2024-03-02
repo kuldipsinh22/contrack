@@ -60,14 +60,22 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/Home" element={<Home />} />
               <Route path="/Contractor" element={<Contractor />} />
+              <Route path="/Add_contractor" element={<Add_contractor />} />
+              <Route path="/Add_contractor/:id" element={<Add_contractor />} />
+              <Route path="/Task" element={<Task />} />
               <Route path="/Add_task" element={<Add_task />} />
+              <Route path="/Add_task/:id" element={<Add_task />} />
+              <Route path="/CompletedTask" element={<CompletedTask />} />
+              <Route path="/Add_taskdone" element={<Add_taskdone />} />
+              <Route path="/Add_taskdone/:id" element={<Add_taskdone />} />
             </Routes>
           </>
-        ) : auth && role_id == 3 ? (
+        ) : auth && role_id == 3 ? ( // Contractor
           <>
             <Layout />
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/Task" element={<Task />} />
             </Routes>
           </>
         ) : (

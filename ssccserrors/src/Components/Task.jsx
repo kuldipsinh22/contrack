@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function Task() {
+  const [role_id, setRole] = useState(sessionStorage.getItem("role"));
   const [task, settasks] = useState([]);
   let i = 1;
   useEffect(() => {
@@ -29,10 +30,13 @@ export default function Task() {
         <div class="card">
           <div class="card-body">
             <h5 class="card-title">task</h5>
-
-            <button class="button-39" role="button">
-              <Link to={`/Add_task/`}>Create Task</Link>
-            </button>
+            {role_id == 1 && 2 ? (
+              <button class="button-39" role="button">
+                <Link to={`/Add_task/`}>Create Task</Link>
+              </button>
+            ) : (
+              <></>
+            )}
 
             <table class="table table-borderless">
               <thead>
