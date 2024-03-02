@@ -45,7 +45,7 @@ export default function Login() {
                     class="logo d-flex align-items-center w-auto"
                   >
                     <img src="assets/img/logo.png" alt="" />
-                    <span class="d-none d-lg-block">E-Learning</span>
+                    <span class="d-none d-lg-block">CONTRACK</span>
                   </a>
                 </div>
 
@@ -119,20 +119,6 @@ export default function Login() {
                       </div>
 
                       <div class="col-12">
-                        <div class="form-check">
-                          <input
-                            class="form-check-input"
-                            type="checkbox"
-                            name="remember"
-                            value="true"
-                            id="rememberMe"
-                          />
-                          <label class="form-check-label" for="rememberMe">
-                            Remember me
-                          </label>
-                        </div>
-                      </div>
-                      <div class="col-12">
                         <button
                           class="btn btn-primary w-100"
                           type="submit"
@@ -141,18 +127,15 @@ export default function Login() {
                           Login
                         </button>
                       </div>
-                      <div class="col-12">
-                        <p class="small mb-0">
-                          Don't have account?{" "}
-                          <Link to="/Teacher_reg">Create an account</Link>
-                        </p>
-                      </div>
                     </form>
                   </div>
                 </div>
 
                 <div class="credits">
-                  Designed by <a href="https://bootstrapmade.com/">KK BROS</a>
+                  Designed and Coded by{" "}
+                  <a href="https://www.instagram.com/k_banna_22/?hl=en">
+                    SSCCS ERRORS
+                  </a>
                 </div>
               </div>
             </div>

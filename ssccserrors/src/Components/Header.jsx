@@ -44,7 +44,6 @@ export default function Header() {
   };
   const btnSignOut = () => {
     sessionStorage.clear();
-    setId("");
   };
   return (
     <header id="header" class="header fixed-top d-flex align-items-center">
