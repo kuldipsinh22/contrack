@@ -30,7 +30,7 @@ export default function Header() {
           "http://localhost:1122/track/subadmin/" + id
         );
         console.log(res.data);
-        setsubadmin_name(res.data.setsubadmin_name);
+        setsubadmin_name(res.data.sub_admin_name);
       } catch (error) {}
     } else {
       try {
@@ -231,12 +231,14 @@ export default function Header() {
               data-bs-toggle="dropdown"
             >
               <span class="d-none d-md-block dropdown-toggle ps-2">
-                {role_id == "1" ? (
+                {role_id == 1 ? (
                   <span>{admin_name}</span>
-                ) : role_id == "2" ? (
+                ) : role_id == 2 ? (
                   <span>{sub_admin_name}</span>
-                ) : (
+                ) : role_id == 3 ? (
                   <span>{contractor_name}</span>
+                ) : (
+                  <></>
                 )}
               </span>
             </a>
@@ -244,12 +246,14 @@ export default function Header() {
             <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
               <li class="dropdown-header">
                 <h6>
-                  {role_id == "1" ? (
+                  {role_id == 1 ? (
                     <span>{admin_name}</span>
-                  ) : role_id == "2" ? (
+                  ) : role_id == 2 ? (
                     <span>{sub_admin_name}</span>
-                  ) : (
+                  ) : role_id == 3 ? (
                     <span>{contractor_name}</span>
+                  ) : (
+                    <></>
                   )}
                 </h6>
                 <span>
