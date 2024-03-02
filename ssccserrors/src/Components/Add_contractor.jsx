@@ -28,7 +28,9 @@ export default function Add_contractor() {
   }, []);
 
   const getprojects = async () => {
-    const res = await axios.get("/" + contractor_id);
+    const res = await axios.get(
+      "http://localhost:1122/track/contractor" + contractor_id
+    );
     setContractorName(res.data.contractor_name);
     setContractorEmail(res.data.contractor_email);
     setContact(res.data.contact);
@@ -92,9 +94,12 @@ export default function Add_contractor() {
       };
       let res = "";
       if (contractor_id) {
-        res = await axios.put("/" + contractor_id, data);
+        res = await axios.put(
+          "http://localhost:1122/track/contractor/" + contractor_id,
+          data
+        );
       } else {
-        res = await axios.post("", data);
+        res = await axios.post("http://localhost:1122/track/contractor", data);
       }
       navigate("/Contactform");
       alert(res.data);

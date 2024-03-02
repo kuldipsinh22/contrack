@@ -41,6 +41,7 @@ function App() {
               <Route path="/Add_contractor" element={<Add_contractor />} />
               <Route path="/Add_contractor/:id" element={<Add_contractor />} />
               <Route path="/Add_task" element={<Add_task />} />
+              <Route path="/Add_task/:id" element={<Add_task />} />
             </Routes>
           </>
         ) : // Sub Admin

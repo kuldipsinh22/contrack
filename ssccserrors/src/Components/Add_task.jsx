@@ -77,7 +77,7 @@ export default function Add_task() {
       <main id="main" class="main">
         <div class="card">
           <div class="card-body">
-            <h1 class="card-project_name">Project</h1>
+            <h1 class="card-project_name">Give task</h1>
             <form class="row g-3">
               <div class="col-md-6">
                 <div class="form-floating">
@@ -89,7 +89,7 @@ export default function Add_task() {
                     defaultValue={contractor_id}
                     onChange={(e) => setcontractor_id(e.target.value)}
                   />{" "}
-                  {/* <p style={{ color: "red" }}>{formErrors.project_name}</p> */}
+                  <p style={{ color: "red" }}>{formErrors.project_name}</p>
                   <label for="floatingName">Contractor unique id</label>
                 </div>
               </div>
