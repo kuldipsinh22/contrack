@@ -35,6 +35,13 @@ export default function Sidebar() {
               <span>Project</span>
             </Link>
           </li>
+
+          <li class="nav-item">
+            <Link class="nav-link collapsed" to="/Task">
+              <i class="bi bi-person"></i>
+              <span>Task</span>
+            </Link>
+          </li>
         </ul>
       </aside>
     </div>

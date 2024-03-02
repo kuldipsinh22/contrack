@@ -11,6 +11,7 @@ import Contractor from "./Components/Contractor";
 import Add_task from "./Components/Add_task";
 import Add_subadmin from "./Components/Add_subadmin";
 import Add_contractor from "./Components/Add_contractor";
+import Task from "./Components/Task";
 
 const Layout = () => {
   return (
@@ -36,10 +37,12 @@ function App() {
               <Route path="/Add_project" element={<Add_project />} />
               <Route path="/Add_project/:id" element={<Add_project />} />
               <Route path="/Subadmin" element={<Subadmin />} />
+              <Route path="/Add_subadmin" element={<Add_subadmin />} />
               <Route path="/Add_subadmin/:id" element={<Add_subadmin />} />
               <Route path="/Contractor" element={<Contractor />} />
               <Route path="/Add_contractor" element={<Add_contractor />} />
               <Route path="/Add_contractor/:id" element={<Add_contractor />} />
+              <Route path="/Task" element={<Task />} />
               <Route path="/Add_task" element={<Add_task />} />
               <Route path="/Add_task/:id" element={<Add_task />} />
             </Routes>
